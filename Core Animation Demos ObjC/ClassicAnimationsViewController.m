@@ -13,6 +13,8 @@
 
 @interface ClassicAnimationsViewController ()
 @property (nonatomic, strong) CALayer *rectangleLayer;
+@property (assign) BOOL layerIsFlipped;
+
 @end
 
 @implementation ClassicAnimationsViewController
@@ -80,6 +82,66 @@
     self.rectangleLayer.cornerRadius = (self.rectangleLayer.cornerRadius == 0.0f) ? 30.0f : 0.0f;
 }
 
+-(IBAction)changeToPulse:(id)sender {
+    
+    if ([self.rectangleLayer animationForKey:@"pulseAnimation"]) {
+        [self.rectangleLayer removeAllAnimations];
+        self.rectangleLayer.transform = CATransform3DMakeScale(1, 1, 1);
+        return;
+    }
+    self.rectangleLayer.transform = CATransform3DMakeScale(0.90, 0.90, 1);
+
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+    animation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+    animation.autoreverses = YES;
+    animation.duration = 0.35;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.repeatCount =animation.repeatCount == 0 ? HUGE_VALF : 0;
+    [self.rectangleLayer addAnimation:animation forKey:@"pulseAnimation"];
+}
+
+//Taken from https://github.com/joericioppo/ShadowDemo
+- (UIBezierPath*)bezierPathWithCurvedShadowForRect:(CGRect)rect {
+    
+    CGFloat offset = 15.0;
+    CGFloat curve = 3.0;
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    
+    CGPoint topLeft         = rect.origin;
+    CGPoint bottomLeft     = CGPointMake(0.0, CGRectGetHeight(rect) + offset);
+    CGPoint bottomMiddle = CGPointMake(CGRectGetWidth(rect)/2, CGRectGetHeight(rect) - curve);
+    CGPoint bottomRight     = CGPointMake(CGRectGetWidth(rect), CGRectGetHeight(rect) + offset);
+    CGPoint topRight     = CGPointMake(CGRectGetWidth(rect), 0.0);
+    
+    [path moveToPoint:topLeft];
+    [path addLineToPoint:bottomLeft];
+    [path addQuadCurveToPoint:bottomRight controlPoint:bottomMiddle];
+    [path addLineToPoint:topRight];
+    [path addLineToPoint:topLeft];
+    [path closePath];
+    
+    return path;
+}
+
+-(IBAction)changeShadow:(id)sender{
+    self.rectangleLayer.shadowOffset = CGSizeMake(0, 3);
+    self.rectangleLayer.shadowOpacity = 0.80;
+    self.rectangleLayer.shadowRadius = 6.0f;
+    self.rectangleLayer.shadowColor = [UIColor darkGrayColor].CGColor;
+    
+    self.rectangleLayer.shadowPath = (self.rectangleLayer.shadowPath) ? nil : [self bezierPathWithCurvedShadowForRect:self.rectangleLayer.bounds].CGPath;
+
+}
+
+-(IBAction)changeAngle:(id)sender{
+    if (self.layerIsFlipped) {
+        self.rectangleLayer.transform = CATransform3DMakeRotation(0, 0, 1, 0);
+    }
+    else {
+        self.rectangleLayer.transform = CATransform3DMakeRotation(-1, 0, 1, 0);
+    }
+    self.layerIsFlipped = !self.layerIsFlipped;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

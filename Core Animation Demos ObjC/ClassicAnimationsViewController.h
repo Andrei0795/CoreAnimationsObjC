@@ -18,4 +18,8 @@
 - (IBAction)changeBounds:(id)sender;
 - (IBAction)changePosition:(id)sender;
 
+- (IBAction)changeToPulse:(id)sender;
+- (IBAction)changeShadow:(id)sender;
+- (IBAction)changeAngle:(id)sender;
+
 @end

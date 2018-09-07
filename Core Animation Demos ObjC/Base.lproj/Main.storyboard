@@ -25,8 +25,8 @@
                                     <constraint firstAttribute="height" constant="30" id="9HS-aq-xEV"/>
                                     <constraint firstAttribute="width" constant="80" id="ymm-7O-0OI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <state key="normal" title="Change Border"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Border"/>
                                 <connections>
                                     <action selector="changeBorder:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xbL-KE-nJX"/>
                                 </connections>
@@ -38,8 +38,8 @@
                                     <constraint firstAttribute="width" constant="80" id="mrQ-VI-yzi"/>
                                     <constraint firstAttribute="height" constant="30" id="vwu-3W-xa8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <state key="normal" title="Change Corner R"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Corner R"/>
                                 <connections>
                                     <action selector="changeCornerRadius:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ws3-gu-O0h"/>
                                 </connections>
@@ -51,8 +51,8 @@
                                     <constraint firstAttribute="width" constant="80" id="LuT-El-bGf"/>
                                     <constraint firstAttribute="height" constant="30" id="poq-FU-0v1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <state key="normal" title="Change Opacity"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Opacity"/>
                                 <connections>
                                     <action selector="changeOpacity:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gVM-wf-rjz"/>
                                 </connections>
@@ -64,8 +64,8 @@
                                     <constraint firstAttribute="height" constant="30" id="cun-mn-qv3"/>
                                     <constraint firstAttribute="width" constant="80" id="k8K-gY-lgr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <state key="normal" title="Change Position"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Position"/>
                                 <connections>
                                     <action selector="changePosition:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zrH-LU-Xbc"/>
                                 </connections>
@@ -77,8 +77,11 @@
                                     <constraint firstAttribute="width" constant="80" id="1oe-r8-DId"/>
                                     <constraint firstAttribute="height" constant="30" id="FgA-5E-dby"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Pulse"/>
+                                <connections>
+                                    <action selector="changeToPulse:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kBe-h4-y6m"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqo-o1-Myh">
                                 <rect key="frame" x="147" y="186" width="80" height="30"/>
@@ -87,8 +90,11 @@
                                     <constraint firstAttribute="width" constant="80" id="RvI-Aj-5s5"/>
                                     <constraint firstAttribute="height" constant="30" id="ezV-j6-JfO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Shadow"/>
+                                <connections>
+                                    <action selector="changeShadow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8kW-iF-L8u"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ls4-XE-shr">
                                 <rect key="frame" x="147" y="64" width="80" height="30"/>
@@ -97,8 +103,8 @@
                                     <constraint firstAttribute="height" constant="30" id="LYU-Sv-xgS"/>
                                     <constraint firstAttribute="width" constant="80" id="rhy-m1-Sys"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <state key="normal" title="Change Bounds"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Bounds"/>
                                 <connections>
                                     <action selector="changeBounds:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cTx-Se-M9C"/>
                                 </connections>
@@ -110,8 +116,8 @@
                                     <constraint firstAttribute="height" constant="30" id="6ly-cL-jTu"/>
                                     <constraint firstAttribute="width" constant="80" id="aGQ-An-3og"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <state key="normal" title="Change Colour"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Colour"/>
                                 <connections>
                                     <action selector="changeColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aU5-yo-Zf0"/>
                                 </connections>
@@ -123,8 +129,11 @@
                                     <constraint firstAttribute="height" constant="30" id="71d-Zb-zci"/>
                                     <constraint firstAttribute="width" constant="80" id="8Vu-yv-7CI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Angle"/>
+                                <connections>
+                                    <action selector="changeAngle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Qu-A7-oSf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
