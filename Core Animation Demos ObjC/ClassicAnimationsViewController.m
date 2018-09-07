@@ -1,0 +1,98 @@
+//
+//  ClassicAnimationsViewController.m
+//  Core Animation Demos ObjC
+//
+//  Created by Andrei Ionescu on 03/09/2018.
+//  Copyright © 2018 Andrei Ionescu. All rights reserved.
+//
+
+#import "ClassicAnimationsViewController.h"
+
+#define ORIGINAL_POSITION CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2 + 150)
+#define MOVED_POSITON CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2 + 200)
+
+@interface ClassicAnimationsViewController ()
+@property (nonatomic, strong) CALayer *rectangleLayer;
+@end
+
+@implementation ClassicAnimationsViewController
+
++ (NSString *)displayName {
+    return @"Classic Animations";
+}
+
+- (id)init {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    if ((self = [storyboard instantiateViewControllerWithIdentifier:@"ClassicAnimationsViewController"])) {
+        self.rectangleLayer = [CALayer layer];
+        self.rectangleLayer.bounds = CGRectMake(0, 0, 150, 150);
+        self.rectangleLayer.position = ORIGINAL_POSITION;
+        self.rectangleLayer.backgroundColor = [UIColor blueColor].CGColor;
+        self.rectangleLayer.borderColor = [UIColor blackColor].CGColor;
+        self.rectangleLayer.opacity = 1.0f;
+        [self.view.layer addSublayer:self.rectangleLayer];
+    }
+    return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.title = [[self class] displayName];
+    for (UIButton *button in self.buttons) {
+        button.layer.cornerRadius = 5.0f;
+        button.layer.borderWidth = 1.0f;
+        button.layer.borderColor = [UIColor colorWithRed:0.083 green:0.394 blue:0.979 alpha:1.000].CGColor;
+    }
+    
+}
+
+
+-(IBAction)changeColor:(id)sender {
+    CGColorRef redColor = [UIColor redColor].CGColor;
+    CGColorRef blueColor = [UIColor blueColor].CGColor;
+    self.rectangleLayer.backgroundColor = (self.rectangleLayer.backgroundColor == redColor) ? blueColor : redColor;
+
+}
+
+-(IBAction)changeBorder:(id)sender {
+    self.rectangleLayer.borderWidth = (self.rectangleLayer.borderWidth == 0.0f) ? 15.0f : 0.0f;
+}
+
+-(IBAction)changeBounds:(id)sender {
+    
+    [self  adjustWidthOfLayer:self.rectangleLayer by:self.rectangleLayer.bounds.size.width == self.rectangleLayer.bounds.size.height ? 100 : -100];}
+
+- (void)adjustWidthOfLayer:(CALayer*)layer by:(CGFloat)value {
+    layer.bounds = CGRectMake(layer.bounds.origin.x, layer.bounds.origin.y, layer.bounds.size.width + value, layer.bounds.size.height);
+}
+
+
+-(IBAction)changeOpacity:(id)sender {
+    self.rectangleLayer.opacity = (self.rectangleLayer.opacity == 1.0f) ? 0.2f : 1.0f;
+}
+
+-(IBAction)changePosition:(id)sender {
+    self.rectangleLayer.position = self.rectangleLayer.position.y == ORIGINAL_POSITION.y ? MOVED_POSITON : ORIGINAL_POSITION;
+}
+
+-(IBAction)changeCornerRadius:(id)sender {
+    self.rectangleLayer.cornerRadius = (self.rectangleLayer.cornerRadius == 0.0f) ? 30.0f : 0.0f;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end
